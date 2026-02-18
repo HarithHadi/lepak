@@ -83,7 +83,7 @@ export default function WordGame(){
 
     return(
         <>
-        <div className="pb-10"><h1 className="font-bold"> Word Game</h1></div>
+        <div className="pb-10"><h1 className="font-bold text-white"> Word Game</h1></div>
         {phase === "idle" && <StartWord onSelect={HandleOnCategorySelct}/>}
         {phase === "setup" && <SetupScreenWord onStart={handleFinalSetup}/> }
         {phase === "started" && (
