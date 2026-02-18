@@ -32,7 +32,7 @@ export default function SetupScreenWord({ onStart }: SetupProps) {
 
         <button
           onClick={() => onStart(playerCount)}
-          className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xl shadow-lg transform active:scale-95 transition"
+          className="bg-green-500 text-white px-10 py-4 w-full rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50"
         >
           Start Game
         </button>

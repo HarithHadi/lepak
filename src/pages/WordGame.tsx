@@ -93,7 +93,7 @@ export default function WordGame(){
                 {!showWord ? (
                     // DIV 1: The "Ready?" screen
                     <div className="">
-                        <button className="" onClick={() => setShowWord(true)}>Reveal My Word</button>
+                        <button className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50" onClick={() => setShowWord(true)}>Reveal My Word</button>
                     </div>
                 ) : (
                     // DIV 2: The "Secret" screen
@@ -101,7 +101,7 @@ export default function WordGame(){
                         <p className={`font-bold text-xl pb-4 ${currentPlayer === impostor ? "text-red-600 animate-pulse" : "text-green-700"}`}>{currentPlayer === impostor ? "YOU ARE IMPOSTOR" : ActiveWord}</p>
                         
                         {/* This button triggers the logic we wrote above */}
-                        <button onClick={handleNextPlayer}>
+                        <button onClick={handleNextPlayer} className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50">
                             Done (Pass Phone)
                         </button>
                     </div>
@@ -116,13 +116,13 @@ export default function WordGame(){
                 <div className="text-5xl font-mono my-4 text-red-400">
                     {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}
                 </div>
-                <button onClick={() => setPhase("reveal")}>Reveal the Impostor</button>
+                <button onClick={() => setPhase("reveal")} className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50">Reveal the Impostor</button>
             </div>
         ) }
         {phase === "reveal" && (
             <div className="flex flex-col items-center gap-6 p-8 bg-white border-3 shadow-xl border-black hover:shadow-[8px_8px_0_0] hover:scale-101 duration-50 ease-in-out">
                 <label className="text-red-500 font-bold text-2xl"> Player {impostor + 1}</label>
-                <button onClick={()=> resetGame()}>Play Again?</button>
+                <button onClick={()=> resetGame()} className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50">Play Again?</button>
             </div>
         ) }
 

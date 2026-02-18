@@ -13,6 +13,7 @@ const categories: Category[] = [
     { name: "Characters", words: ['Bruno Mars', 'Katy Perry', 'Ariana Grande', 'Dwayne Rock Johnson', 'Brad Pitt', 'Hello Kitty', 'Mickey Mouse'] },
     { name: "Shows", words: ['Friends', 'Upin Ipin', 'Tom & Jerry', 'Pink Panther', 'Simpsons', 'Dora The Explorer'] },
     { name: "Brands", words: ['Coca Cola', 'Red Bull', 'Apple', 'IKEA', 'Disney', 'Mydin', 'KFC'] },    
+    { name: "State", words: ['Perlis', 'Kelantan', ' Melaka', 'Selangor', 'Sarawak', 'Johor', 'Perak', 'Pahang', 'Terengganu', 'Sabah', 'Johor', 'N9', 'KL'] },
 ];
 
 
@@ -26,7 +27,7 @@ const categories: Category[] = [
                 <button
                     key={category.name}
                     onClick={() => onSelect(category.words)}
-                    className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+                    className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50"
                             >
                     {category.name}
                 </button>
