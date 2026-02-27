@@ -4,19 +4,19 @@ type Category = {
 };
 
 interface StartWordProps {
-  onSelect: (words: string[]) => void; // This function takes an array and returns nothing
+  onSelect: (words: string[]) => void; 
 }
 
 export default function StartWord({ onSelect }: StartWordProps){ 
-const categories: Category[] = [
-    { name: "Food", words: ['Nasi Lemak', 'Chicken Tenders', 'Durian', 'Banana', 'Tomyam', 'Fish', 'Roti Canai', 'Budu','Keropok Lekor'] },
-    { name: "Characters", words: ['Bruno Mars', 'Katy Perry', 'Ariana Grande', 'Dwayne Rock Johnson', 'Brad Pitt', 'Hello Kitty', 'Mickey Mouse'] },
-    { name: "Shows", words: ['Friends', 'Upin Ipin', 'Tom & Jerry', 'Pink Panther', 'Simpsons', 'Dora The Explorer'] },
-    { name: "Brands", words: ['Coca Cola', 'Red Bull', 'Apple', 'IKEA', 'Disney', 'Mydin', 'KFC'] },    
-    { name: "State", words: ['Perlis', 'Kelantan', ' Melaka', 'Selangor', 'Sarawak', 'Johor', 'Perak', 'Pahang', 'Terengganu', 'Sabah', 'Johor', 'N9', 'KL'] },
-];
+    const categories: Category[] = [
+        { name: "Food", words: ['Nasi Lemak', 'Chicken Tenders', 'Durian', 'Banana', 'Tomyam', 'Fish', 'Roti Canai', 'Budu','Keropok Lekor']},
+        { name: "Characters", words: ['Bruno Mars', 'Katy Perry', 'Ariana Grande', 'Dwayne Rock Johnson', 'Brad Pitt', 'Hello Kitty', 'Mickey Mouse'] },
+        { name: "Shows", words: ['Friends', 'Upin Ipin', 'Tom & Jerry', 'Pink Panther', 'Simpsons', 'Dora The Explorer'] },
+        { name: "Brands", words: ['Coca Cola', 'Red Bull', 'Apple', 'IKEA', 'Disney', 'Mydin', 'KFC'] },    
+        { name: "State", words: ['Perlis', 'Kelantan', ' Melaka', 'Selangor', 'Sarawak', 'Johor', 'Perak', 'Pahang', 'Terengganu', 'Sabah', 'Johor', 'N9', 'KL'] },
+    ];
 
-
+    
 
     return(
         <>
