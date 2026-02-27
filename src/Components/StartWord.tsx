@@ -27,9 +27,12 @@ export default function StartWord({ onSelect }: StartWordProps){
                 <button
                     key={category.name}
                     onClick={() => onSelect(category.words)}
-                    className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50"
-                            >
-                    {category.name}
+                    // Changed px-10 to px-2 and added w-full to ensure they fill the grid evenly
+                    className="w-full bg-[#7CFC00] text-black border-3 border-black px-2 py-4 font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50 flex items-center justify-center"
+                >
+                    <span className="text-xs sm:text-base md:text-lg break-all font-bold">
+                        {category.name}
+                    </span>
                 </button>
             ))}
         </div>
