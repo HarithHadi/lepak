@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Start from './pages/Start'
 import Home from './pages/Home'
 import WordGame from './pages/WordGame'
-import { Analytics } from '@vercel/analytics/next'
+import { Analytics } from '@vercel/analytics/react'
 
 import './App.css'
 
