@@ -9,10 +9,10 @@ interface StartWordProps {
 
 export default function StartWord({ onSelect }: StartWordProps){ 
     const categories: Category[] = [
-        { name: "Food", words: ['Nasi Lemak', 'Chicken Tenders', 'Durian', 'Banana', 'Tomyam', 'Fish', 'Roti Canai', 'Budu','Keropok Lekor']},
-        { name: "Characters", words: ['Bruno Mars', 'Katy Perry', 'Ariana Grande', 'Dwayne Rock Johnson', 'Brad Pitt', 'Hello Kitty', 'Mickey Mouse'] },
-        { name: "Shows", words: ['Friends', 'Upin Ipin', 'Tom & Jerry', 'Pink Panther', 'Simpsons', 'Dora The Explorer'] },
-        { name: "Brands", words: ['Coca Cola', 'Red Bull', 'Apple', 'IKEA', 'Disney', 'Mydin', 'KFC'] },    
+        { name: "Food", words: ['Tempoyak','Nasi Lemak', 'Chicken Tenders', 'Durian', 'Banana', 'Tomyam', 'Roti Canai', 'Budu','Keropok Lekor', 'Satay', 'Dim Sum', 'Laksa', 'Croissant', 'Maggie', 'Sushi', 'Cendol','Burger Ramly', 'Pisang Goreng', 'Rendang' ]},
+        { name: "Characters", words: ['Bruno Mars', 'Katy Perry', 'Ariana Grande', 'Dwayne Rock Johnson', 'Brad Pitt', 'Hello Kitty', 'Spider-Man', 'Mickey Mouse', 'Upin & Ipin','Batman', 'Shrek', 'Minions','Doraemon', 'Pikachu', 'Elsa', 'BoBoiBoy', 'SpongeBob SquarePants'] },
+        { name: "Shows", words: ['Spongebob','Doraemon','Squid Game', 'Upin Ipin', 'Tom & Jerry', 'Pink Panther', 'Simpsons', 'Dora The Explorer'] },
+        { name: "Brands", words: ['Coca Cola', 'Red Bull', 'Apple', 'IKEA', 'Disney', 'Mydin', 'KFC', 'Shoppee', 'Grab', 'Uniqlo', 'Maybank', 'Zus Coffee','Samsung' ] },    
         { name: "State", words: ['Perlis', 'Kelantan', ' Melaka', 'Selangor', 'Sarawak', 'Johor', 'Perak', 'Pahang', 'Terengganu', 'Sabah', 'Johor', 'N9', 'KL'] },
     ];
 
