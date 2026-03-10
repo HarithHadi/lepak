@@ -2,7 +2,7 @@ import { useState } from "react";
 import MafiaSetup from "../Components/MafiaSetup";
 
 export default function Mafia(){
-    const [names, setnames] = useState(["", "","",""])
+    const [names, setnames] = useState(["","","",""])
     const [phase, setPhase] = useState<"idle" | "setup" | "started" | "discussion" | "reveal">("idle");
 
     const addPerson = () => {
@@ -38,12 +38,15 @@ export default function Mafia(){
         </div>
         {phase === "idle" && (
             <div className="bg-white p-6 border-3 flex flex-col">
-                {names.map((name, index) => (
+                {names.map((_, index) => (
                     <div key={index} className="pb-4 flex flex-row items-center gap-2"> 
                         <label className="font-bold p-1 whitespace-nowrap">Enter Name</label>
                         <input type="text" className="border-2 border-black p-2 " onChange={(e) => HandlePlayerChange(index, e.target.value)}/>
                     </div>
                 ))}
+                <p className="text-gray-500 text-xs mt-2 text-center italic">
+                    Recommended players of 7
+                </p>
         
                 <div className="pt-5">
                     <button 
