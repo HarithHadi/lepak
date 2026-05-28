@@ -6,20 +6,21 @@ type Phase = "idle" | "setup" | "started" | "discussion" | "reveal";
 type MafiaSetupProps = {
     totalPlayers: number;
     setPhase: React.Dispatch<React.SetStateAction<Phase>>;
+    numberMafia: number;
+    setnumberMafia: React.Dispatch<React.SetStateAction<number>>;
+    
 };
 
-export default function MafiaSetup({totalPlayers,setPhase}: MafiaSetupProps) {
-
-    const [numMafia, setnumMafia]  = useState(0)
+export default function MafiaSetup({totalPlayers,setPhase, numberMafia, setnumberMafia}: MafiaSetupProps) {
 
     const maxMafia = Math.floor(totalPlayers / 2.5) || 1;
     const minMafia = 1;
 
-    const numVillager = totalPlayers - numMafia;
+    const numVillager = totalPlayers - numberMafia;
 
     const handleMafiaChange = (val : number) => {
         const clampedValue = Math.max(minMafia, Math.min(val, maxMafia))
-        setnumMafia(clampedValue)
+        setnumberMafia(clampedValue)
     }
 
     
@@ -49,7 +50,7 @@ export default function MafiaSetup({totalPlayers,setPhase}: MafiaSetupProps) {
                 <input 
                     type="number"
                     className="border-black border-2 p-2 flex-1"
-                    value={numMafia}
+                    value={numberMafia}
                     min={minMafia}
                     max={maxMafia}
                     onChange={(e) => {handleMafiaChange(parseInt(e.target.value) || 0)}} 

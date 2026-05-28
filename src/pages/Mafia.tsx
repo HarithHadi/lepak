@@ -5,6 +5,7 @@ import MafiaGame from "../Components/MafiaGame";
 export default function Mafia(){
     const [names, setnames] = useState<string[]>(["","","",""])
     const [phase, setPhase] = useState<"idle" | "setup" | "started" | "discussion" | "reveal">("idle");
+    const [numberMafia, setnumberMafia] = useState(0);
 
     const addPerson = () => {
         if(names.length < 10){
@@ -58,8 +59,8 @@ export default function Mafia(){
                 <div className="pt-5"><button onClick={confirmPlayers}>Next</button></div>
             </div>
         )}
-        {phase === "setup" && (<MafiaSetup totalPlayers={names.length} setPhase={setPhase} />)}
-        {phase === "started" && (<MafiaGame names={names} />)}
+        {phase === "setup" && (<MafiaSetup totalPlayers={names.length} setPhase={setPhase} numberMafia={numberMafia} setnumberMafia={setnumberMafia}/>)}
+        {phase === "started" && (<MafiaGame setPhase={setPhase} names={names} numMafia={numberMafia}  />)}
         </>
     )
 }
