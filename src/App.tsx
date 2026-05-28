@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Start from './pages/Start'
 import Home from './pages/Home'
 import WordGame from './pages/WordGame'
+import { Analytics } from '@vercel/analytics/react'
 import Mafia from './pages/Mafia'
 
 import './App.css'
@@ -17,6 +18,7 @@ function App() {
         <Route path="/WordGame" element={<WordGame />} />
         <Route path="/Mafia" element={<Mafia />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
     
   )

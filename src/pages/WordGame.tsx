@@ -8,7 +8,7 @@ export default function WordGame(){
     const [phase, setPhase] = useState<"idle" | "setup" | "started" | "discussion" | "reveal">("idle");
     const [numofPlayers, setNumofPlayers] = useState(3);
     const [showWord, setShowWord] = useState(false)
-    const [impostor, setImpostor] = useState(0);
+    const [impostor, setImpostor] = useState<number[]>([]);
     const [ActiveWord, setActiveWord] = useState("");
     const [currentPlayer, setcurrentPlayer] = useState(0);
     const [timer, setTimer] = useState(0);
@@ -20,14 +20,21 @@ export default function WordGame(){
         setPhase("setup")
     }
 
-    const handleFinalSetup = (num : number) => {
+    const handleFinalSetup = (num : number, impostorCount : number) => {
         setNumofPlayers(num);
 
-        const randomImpostor = Math.floor(Math.random() * num)
-        setImpostor(randomImpostor);
+        const newImpostor: number[] = [];
+        
+        while(newImpostor.length < impostorCount){
+            const randomPlayer = Math.floor(Math.random() * num);
+            
+            if(!newImpostor.includes(randomPlayer)) {
+                newImpostor.push(randomPlayer);
+            }
+        }
 
-        //FIX: Ensure we are using the most recent word lists
-        // If 'words' is empty here, it's because setWords hasn't finished
+        setImpostor(newImpostor);
+
         if(words.length > 0){
             const randomIndex = Math.floor (Math.random() * words.length)
             const randomWord = words[randomIndex]
@@ -54,7 +61,7 @@ export default function WordGame(){
         setShowWord(false);
         setcurrentPlayer(0);
         setActiveWord("");
-        setImpostor(0);
+        setImpostor([]);
         setNumofPlayers(3); 
         setTimer(0);
     };
@@ -90,8 +97,23 @@ export default function WordGame(){
                     </div>
                 ) : (
                     <div className="">
-                        <p className={`font-bold text-xl pb-4 ${currentPlayer === impostor ? "text-red-600 animate-pulse" : "text-green-700"}`}>{currentPlayer === impostor ? "YOU ARE IMPOSTOR" : ActiveWord}</p>
-                        
+                       <p className={`font-bold text-xl pb-4 ${
+                            impostor.includes(currentPlayer) ? "text-red-600 animate-pulse" : "text-green-700"
+                            }`}
+                        >
+                            {impostor.includes(currentPlayer)
+                            ? (
+                                impostor.length === 1
+                                    ? "YOU ARE IMPOSTOR"
+                                    : `YOU AND PLAYER${impostor
+                                        .filter(p => p !== currentPlayer)
+                                        .map(p => ` ${p + 1}`)
+                                        .join(", ")} ARE IMPOSTORS`
+                                )
+                            : ActiveWord
+                            }
+                        </p>
+                                                
                         <button onClick={handleNextPlayer} className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50">
                             Done (Pass Phone)
                         </button>
@@ -111,7 +133,14 @@ export default function WordGame(){
         ) }
         {phase === "reveal" && (
             <div className="flex flex-col items-center gap-6 p-8 bg-white border-3 shadow-xl border-black hover:shadow-[8px_8px_0_0] hover:scale-101 duration-50 ease-in-out">
-                <label className="text-red-500 font-bold text-2xl"> Player {impostor + 1}</label>
+                <label className="text-red-500 font-bold text-2xl">{impostor.length == 1 ? `IMPOSTOR` : `IMPOSTORS`}</label>
+                <label className="text-grey-500 font-bold text-2xl">
+                    {impostor.length == 1 ? 
+                        ` Player ${impostor[0] + 1}`
+                            :  
+                        `${impostor.map(p => `Player ${p + 1}`).join(", ")}`}
+                </label>
+
                 <button onClick={()=> resetGame()} className="bg-green-500 text-white px-10 py-4 rounded-xl font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-50">Play Again?</button>
             </div>
         ) }
