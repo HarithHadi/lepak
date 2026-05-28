@@ -1,7 +1,15 @@
 import { useState } from "react"
 
-useState
-export default function MafiaSetup({totalPlayers} : { totalPlayers : number }){
+
+type Phase = "idle" | "setup" | "started" | "discussion" | "reveal";
+
+type MafiaSetupProps = {
+    totalPlayers: number;
+    setPhase: React.Dispatch<React.SetStateAction<Phase>>;
+};
+
+export default function MafiaSetup({totalPlayers,setPhase}: MafiaSetupProps) {
+
     const [numMafia, setnumMafia]  = useState(0)
 
     const maxMafia = Math.floor(totalPlayers / 2.5) || 1;
@@ -15,8 +23,6 @@ export default function MafiaSetup({totalPlayers} : { totalPlayers : number }){
     }
 
     
-
-
 
 
     return(
@@ -53,7 +59,7 @@ export default function MafiaSetup({totalPlayers} : { totalPlayers : number }){
                 * Max Mafia for {totalPlayers} players is {maxMafia}.
             </p>
             <div className="pt-2">
-                <button className="self-center w-full">next</button>
+                <button className="self-center w-full" onClick={() => setPhase("started")}>next</button>
             </div>
         </div>
         </>

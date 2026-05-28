@@ -1,8 +1,9 @@
 import { useState } from "react";
 import MafiaSetup from "../Components/MafiaSetup";
+import MafiaGame from "../Components/MafiaGame";
 
 export default function Mafia(){
-    const [names, setnames] = useState(["","","",""])
+    const [names, setnames] = useState<string[]>(["","","",""])
     const [phase, setPhase] = useState<"idle" | "setup" | "started" | "discussion" | "reveal">("idle");
 
     const addPerson = () => {
@@ -57,7 +58,8 @@ export default function Mafia(){
                 <div className="pt-5"><button onClick={confirmPlayers}>Next</button></div>
             </div>
         )}
-        {phase === "setup" && (<MafiaSetup totalPlayers={names.length} />)}
+        {phase === "setup" && (<MafiaSetup totalPlayers={names.length} setPhase={setPhase} />)}
+        {phase === "started" && (<MafiaGame names={names} />)}
         </>
     )
 }
